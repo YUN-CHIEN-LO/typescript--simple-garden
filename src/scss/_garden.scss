@@ -1,0 +1,31 @@
+#garden {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 102vw;
+  transform: translateX(-1vw);
+}
+
+.btn {
+  text-align: center;
+  width: 150px;
+  padding: 10px;
+  margin: 10px s0px;
+  border: none;
+  background-color: #105652;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  opacity: 0.5;
+  &:hover {
+    opacity: 1;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.6);
+  }
+  &--group {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

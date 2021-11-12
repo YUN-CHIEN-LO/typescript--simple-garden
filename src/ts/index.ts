@@ -1,39 +1,51 @@
 import { Flower } from "./flower.js";
+
 enum Color {
-  red = "#E05D5D",
-  yellow = "#FFB344",
-  blue = "#00A19D",
-  white = "#FFF8E5",
+  red = "red",
+  yellow = "yellow",
+  blue = "blue",
+  white = "white",
 }
 
 let myGarden = <Flower[]>[];
 let flowerId = 0;
 
+const randomEnumValue = (enumeration: any) => {
+  const values = Object.keys(enumeration);
+  const enumKey = values[Math.floor(Math.random() * values.length)];
+  return enumeration[enumKey];
+};
+
 const plantFlower = function () {
-  const flower = new Flower(flowerId++, "red", 1);
+  const flower = new Flower(flowerId++, randomEnumValue(Color));
   myGarden.push(flower);
-  renderGarden();
 };
 
-const renderGarden = function () {
+const clearGarden = function () {
+  myGarden = <Flower[]>[];
   const gardenDOM = document.getElementById("garden") as HTMLElement;
-  // 清空DOM
   gardenDOM.innerHTML = "";
-
-  myGarden.forEach((x) => {
-    const flowerTemplate = document
-      .getElementsByTagName("template")[0]
-      .content.cloneNode(true);
-
-    // 插入DOM元件
-    gardenDOM?.appendChild(flowerTemplate);
-  });
 };
-
+const removeFlower = function () {
+  myGarden.pop();
+  const gardenDOM = document.getElementById("garden") as HTMLElement;
+  for (let i = 0; i < 3; i++) {
+    if (gardenDOM.lastChild) {
+      gardenDOM.removeChild(gardenDOM.lastChild);
+    }
+  }
+};
 document.addEventListener("DOMContentLoaded", function (event) {
-  renderGarden();
   const plantBtn = document.getElementById("plant") as HTMLElement;
   plantBtn.onclick = () => {
     plantFlower();
+  };
+  const clearBtn = document.getElementById("clear") as HTMLElement;
+  clearBtn.onclick = () => {
+    clearGarden();
+  };
+  const removeBtn = document.getElementById("remove") as HTMLElement;
+  removeBtn.onclick = () => {
+    removeFlower();
   };
 });

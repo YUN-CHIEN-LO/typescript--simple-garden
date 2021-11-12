@@ -1,4 +1,13 @@
+@import "./flower";
+@import "./garden";
 body,
 html {
   margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #cee5d0;
+}
+* {
+  transition-duration: 0.3s;
 }
