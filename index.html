@@ -5,12 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simple Garden</title>
+    <link rel="stylesheet" href="./dist/css/index.min.css" />
+    <script type="module" src="./dist/js/index.js"></script>
   </head>
   <body>
-      <div id="garden"></div>
+    <div id="garden"></div>
+    <div class="btn--group">
+      <button id="plant" class="btn">Plant</button>
+      <button id="clear" class="btn">Clear</button>
+      <button id="remove" class="btn">Remove</button>
+    </div>
   </body>
 </html>
 
 <template>
-  <div class="flower"></div>
+  <div class="flower">
+    <div class="flower__blossom">
+      <div class="flower__paddle flower__paddle--1"></div>
+      <div class="flower__paddle flower__paddle--2"></div>
+      <div class="flower__paddle flower__paddle--3"></div>
+      <div class="flower__paddle flower__paddle--4"></div>
+      <div class="flower__paddle flower__paddle--5"></div>
+      <div class="flower__paddle flower__paddle--6"></div>
+    </div>
+    <div class="flower__stem"></div>
+  </div>
 </template>
